@@ -1,21 +1,10 @@
 import client from "../apollo-client";
 import { gql } from "@apollo/client";
 
-//material ui
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import LaunchesList from "../components/LaunchesList";
 
 export default function Home({ launchesPast }) {
-  console.log(launchesPast);
-  return (
-    <Container maxWidth="md">
-      <Typography variant="h1" component="div">
-        SpaceX
-      </Typography>
-      <LaunchesList launches={launchesPast} />
-    </Container>
-  );
+  return <LaunchesList launches={launchesPast} />;
 }
 
 export async function getStaticProps() {
@@ -35,6 +24,7 @@ export async function getStaticProps() {
           }
           launch_success
           launch_year
+          id
         }
       }
     `,
