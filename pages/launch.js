@@ -7,27 +7,29 @@ const Launch = ({ launch }) => {
   return (
     <div>
       <h1>{launch.mission_name}</h1>
-      <a href={launch.links.article_link}>Link</a>
     </div>
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const {
-    query: { id },
-  } = context;
-  console.log("CONTEXT ", id);
-
+export const getServerSideProps = async ({ query: { id } }) => {
   const { data } = await client.query({
     query: gql`
       {
         launch(id: ${id}) {
-            mission_name
-            launch_success
-            links {
-              flickr_images
-              article_link
+          mission_name
+          launch_success
+          rocket {
+            rocket {
+              cost_per_launch
+              country
+              description
+              first_flight
+              height {
+                meters
+              }
+              name
             }
+          }
         }
       }
     `,
