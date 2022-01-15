@@ -1,0 +1,9 @@
+.nasa {
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.spaceX {
+  width: 250px;
+}

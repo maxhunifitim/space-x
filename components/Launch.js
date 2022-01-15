@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+
 import { CardActionArea } from "@mui/material";
 import { Chip } from "@mui/material";
 import { Box } from "@mui/system";
@@ -13,11 +14,7 @@ import { Box } from "@mui/system";
 const Launch = ({ launch }) => {
   const isSuccess = launch.launch_success;
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-      }}
-    >
+    <Card>
       <CardActionArea>
         <CardMedia
           component="img"
