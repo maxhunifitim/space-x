@@ -1,5 +1,7 @@
 import React from "react";
 
+import spaceX from "../public/spacex.jpg";
+
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,6 +11,7 @@ import { Chip } from "@mui/material";
 import { Box } from "@mui/system";
 
 const Launch = ({ launch }) => {
+  const isSuccess = launch.launch_success;
   return (
     <Card
       sx={{
@@ -22,9 +25,9 @@ const Launch = ({ launch }) => {
           image={
             launch.links.flickr_images.length !== 0
               ? launch.links.flickr_images[0]
-              : `https://www.spacex.com/static/images/share.jpg`
+              : spaceX.src
           }
-          alt="green iguana"
+          alt={launch.mission_name}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
@@ -39,9 +42,11 @@ const Launch = ({ launch }) => {
                 {launch.launch_year}
               </Typography>
             </Box>
-            {!launch.launch_success && (
-              <Chip label="Fail" variant="outlined" color="error" />
-            )}
+            <Chip
+              label={isSuccess ? "Succeeded" : "Failed"}
+              variant="outlined"
+              color={isSuccess ? "success" : "error"}
+            />
           </Box>
         </CardContent>
       </CardActionArea>

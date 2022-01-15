@@ -12,7 +12,6 @@ const LaunchesList = ({ launches }) => {
               pathname: "/launch",
               query: { id: launch.id },
             }}
-            passHref
           >
             <a>
               <Launch launch={launch} />

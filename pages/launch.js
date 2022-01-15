@@ -1,14 +1,9 @@
 import client from "../apollo-client";
-import Image from "next/image";
 import { gql } from "@apollo/client";
+import LaunchDetails from "../components/LaunchDetails";
 
 const Launch = ({ launch }) => {
-  console.log(launch);
-  return (
-    <div>
-      <h1>{launch.mission_name}</h1>
-    </div>
-  );
+  return <LaunchDetails launch={launch} />;
 };
 
 export const getServerSideProps = async ({ query: { id } }) => {
@@ -29,6 +24,9 @@ export const getServerSideProps = async ({ query: { id } }) => {
               }
               name
             }
+          }
+          links {
+            flickr_images
           }
         }
       }
