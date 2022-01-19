@@ -7,12 +7,7 @@ const LaunchesList = ({ launches }) => {
     <Grid container spacing={2}>
       {launches.map((launch, id) => (
         <Grid key={id} item xs={12} sm={6} md={4}>
-          <Link
-            href={{
-              pathname: "/launch",
-              query: { id: launch.id },
-            }}
-          >
+          <Link href="/launch/[id]" as={`/launch/${launch.id}`}>
             <a>
               <Launch launch={launch} />
             </a>
